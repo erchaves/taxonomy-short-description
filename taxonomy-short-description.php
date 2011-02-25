@@ -62,7 +62,7 @@ add_action( 'admin_init', 'taxonomy_short_description_actions' );
  *
  * @author    Michael Fields
  * @since     2010-05-31
- * @alter     2011-01-09
+ * @alter     2011-02-25
  */
 function taxonomy_short_description_columns( $columns ) {
 	$position = 0;
@@ -119,7 +119,7 @@ function taxonomy_short_description_columns( $columns ) {
  *
  * @author    Michael Fields
  * @since     2010-05-31
- * @alter     2011-01-09
+ * @alter     2011-02-25
  */
 function taxonomy_short_description_rows( $string, $column_name, $term ) {
 	if ( 'mfields_short_description' == $column_name ) {
@@ -144,7 +144,7 @@ function taxonomy_short_description_rows( $string, $column_name, $term ) {
  * @author    Michael Fields
  * @author    Thomas Scholz
  * @since     2010-05-31
- * @alter     2011-01-09
+ * @alter     2011-02-25
  */
 function taxonomy_short_description_shorten( $string, $max_length = 23, $append = '&#8230;' ) {
 
