@@ -147,7 +147,7 @@ function taxonomy_short_description_rows( $string, $column_name, $term ) {
  * @alter     2011-01-09
  */
 function taxonomy_short_description_shorten( $string, $max_length = 23, $append = '&#8230;' ) {
-	
+
 	/* Sanitize $string. */
 	$string = strip_tags( $string );
 	$string = trim( $string );
