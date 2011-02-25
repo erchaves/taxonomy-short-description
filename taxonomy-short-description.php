@@ -26,19 +26,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 
 /**
- * Create actions for all taxonomies.
+ * Hook into WordPress.
+ *
+ * Create hooks for all taxonomies that have a UI.
  *
  * @return    void
  *
  * @author    Michael Fields
  * @since     2010-05-31
- * @alter     2011-01-09
+ * @alter     2011-02-25
  */
 function taxonomy_short_description_actions() {
-	global $wp_taxonomies;
-	foreach ( $wp_taxonomies as $taxonomy => $taxonomies ) {
-		add_action( 'manage_' . $taxonomy . '_custom_column', 'taxonomy_short_description_rows', 10, 3 );
-		add_action( 'manage_edit-' . $taxonomy . '_columns',  'taxonomy_short_description_columns' );
+	$taxonomies = get_taxonomies();
+	foreach ( $taxonomies as $taxonomy ) {
+		$config = get_taxonomy( $taxonomy );
+		if ( isset( $config->show_ui ) && true == $config->show_ui ) {
+			add_action( 'manage_' . $taxonomy . '_custom_column', 'taxonomy_short_description_rows', 10, 3 );
+			add_action( 'manage_edit-' . $taxonomy . '_columns',  'taxonomy_short_description_columns' );
+		}
 	}
 }
 add_action( 'admin_init', 'taxonomy_short_description_actions' );
