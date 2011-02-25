@@ -52,7 +52,7 @@ add_action( 'admin_init', 'taxonomy_short_description_actions' );
 /**
  * Term Columns.
  *
- * Filter the taxonomy tables columns.
+ * Filter the taxonomy table's columns.
  *
  * Remove the default "Description" column.
  * Add a custom "Short Description" column.
@@ -107,10 +107,14 @@ function taxonomy_short_description_columns( $columns ) {
  * for adjustments. The following code can be added to any theme
  * or plugin to customize the length of term descriptions:
  *
+ * <code>
+ * <?php
  * function mytheme_taxonomy_short_description_length( $length ) {
  *     return 100;
  * }
  * add_filter( 'mfields_taxonomy_short_description_length', 'mytheme_taxonomy_short_description_length' );
+ * ?>
+ * </code>
  *
  * @param     string    Should be empty.
  * @param     string    Name of the column.
@@ -137,7 +141,7 @@ function taxonomy_short_description_rows( $string, $column_name, $term ) {
  * Shorten a string to a given length.
  *
  * @param     string    The string to shorten.
- * @param     int       Number of characters allowed in $string. Defaults value is 23.
+ * @param     int       Number of characters allowed in $string. Default value is 23.
  * @param     string    Text to append to the shortened string.
  * @return    string    Shortened string.
  *
