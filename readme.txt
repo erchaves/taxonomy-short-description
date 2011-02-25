@@ -3,8 +3,8 @@ Taxonomy Short Description
 Contributors: mfields, toscho
 Donate link: http://wordpress.mfields.org/donate/
 Tags: taxonomy, tag, category, description, short
-Requires at least: 3.0.4
-Tested up to: 3.1RC2
+Requires at least: 3.1
+Tested up to: 3.1
 Stable tag: 1.1
 Shortens the description shown in the administration panels for all categories, tags and custom taxonomies.
 
