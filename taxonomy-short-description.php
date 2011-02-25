@@ -159,6 +159,15 @@ function taxonomy_short_description_shorten( $string, $max_length = 23, $append 
 		$max_length = 23;
 	}
 
+	/* Return early if the php "mbstring" extension is not installed. */
+	if ( ! function_exists( 'mb_substr' ) ) {
+		$length = strlen( $string );
+		if ( $length > $max_length ) {
+			return substr_replace( $string, $append, $max_length );
+		}
+		return $string;
+	}
+
 	/* Count how many characters are in the string. */
 	$length = strlen( utf8_decode( $string ) );
 
