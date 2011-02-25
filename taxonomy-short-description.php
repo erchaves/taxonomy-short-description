@@ -154,6 +154,11 @@ function taxonomy_short_description_shorten( $string, $max_length = 23, $append 
 	$string = html_entity_decode( $string, ENT_QUOTES, 'UTF-8' );
 	$string = rtrim( $string, '-' );
 
+	/* Sanitize $max_length */
+	if ( 0 == abs( (int) $max_length ) ) {
+		$max_length = 23;
+	}
+
 	/* Count how many characters are in the string. */
 	$length = strlen( utf8_decode( $string ) );
 
