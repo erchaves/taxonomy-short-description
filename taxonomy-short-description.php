@@ -64,10 +64,36 @@ add_action( 'admin_init', 'taxonomy_short_description_actions' );
  * @since     2010-05-31
  * @alter     2011-01-09
  */
-function taxonomy_short_description_columns( $c ) {
-	$c['short_description'] = $c['description'];
-	unset( $c['description'] );
-	return $c;
+function taxonomy_short_description_columns( $columns ) {
+	$position = 0;
+	$iterator = 1;
+	foreach( $columns as $column => $display_name ) {
+		if ( 'name' == $column ) {
+			$position = $iterator;
+		}
+		$iterator++;
+	}
+	if ( 0 < $position ) {
+		/* Store all columns up to and including "Name". */
+		$before = $columns;
+		array_splice( $before, $position );
+
+		/* All of the other columns are stored in $after. */
+		$after  = $columns;
+		$after = array_diff ( $columns, $before );
+
+		/* Prepend a custom column for the short description. */
+		$after = array_reverse( $after, true );
+		$after['mfields_short_description'] = $after['description'];
+		$after = array_reverse( $after, true );
+
+		/* Remove the original description column. */
+		unset( $after['description'] );
+
+		/* Join all columns back together. */
+		$columns = $before + $after;
+	}
+	return $columns;
 }
 
 
@@ -86,7 +112,7 @@ function taxonomy_short_description_columns( $c ) {
  * @alter     2011-01-09
  */
 function taxonomy_short_description_rows( $string, $column_name, $term ) {
-	if ( 'short_description' == $column_name ) {
+	if ( 'mfields_short_description' == $column_name ) {
 		global $taxonomy;
 		$string = term_description( $term, $taxonomy );
 		$string = taxonomy_short_description_shorten( $string, apply_filters( 'taxonomy_short_description_length', 40 ) );
