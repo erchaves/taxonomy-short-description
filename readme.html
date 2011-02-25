@@ -1,0 +1,29 @@
+<h1>Taxonomy Short Description</h1>
+
+<p>A <a href="http://wordpress.org/">WordPress</a> plugin that shortens the term description shown in the administration panels for all categories, tags and custom taxonomies. This plugin does not effect public views of term descriptions at all.</p>
+
+<h2>Known Issues</h2>
+
+<ul>
+<li>You will not be able to sort by description in WordPress 3.1. <a href="http://core.trac.wordpress.org/ticket/13650">#13650</a></li>
+</ul>
+
+<h2>Changelog</h2>
+
+<h3>1.2</h3>
+<ol>
+<li>Only create hooks for taxonomies that have a UI.</li>
+<li>Responsible handling of the custom column.</li>
+<li>Provide a fallback in case "mbstring" php extension is not installed.<li>
+</ul>
+
+<h3>1.1</h3>
+<li>Added support for multibyte strings in taxonomy_short_description_shorten().</li>
+<li>Better use of typography in taxonomy_short_description_shorten().</li>
+<li>Added [Thomas Scholz]: http://toscho.de/ueber-mich/ aka [toscho]: http://wordpress.org/support/profile/toscho as a contributer.</li>
+<li>Fixed bug in taxonomy_short_description_rows() - moved filter into conditional.</li>
+</ul>
+
+<h3>1.0</h3>
+<li>Original Release - Works With: wp 3.0 and 3.1RC2.</li>
+</ul>
