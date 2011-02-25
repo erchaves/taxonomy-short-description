@@ -102,6 +102,16 @@ function taxonomy_short_description_columns( $columns ) {
  *
  * Display the shortened description in each row's custom column.
  *
+ * The description will be shortened to 40 characters. If a user
+ * finds this length unsatisfactory, a filter has been provided
+ * for adjustments. The following code can be added to any theme
+ * or plugin to customize the length of term descriptions:
+ *
+ * function mytheme_taxonomy_short_description_length( $length ) {
+ *     return 100;
+ * }
+ * add_filter( 'mfields_taxonomy_short_description_length', 'mytheme_taxonomy_short_description_length' );
+ *
  * @param     string    Should be empty.
  * @param     string    Name of the column.
  * @param     string    Term id. Integer represented as string.
@@ -115,7 +125,7 @@ function taxonomy_short_description_rows( $string, $column_name, $term ) {
 	if ( 'mfields_short_description' == $column_name ) {
 		global $taxonomy;
 		$string = term_description( $term, $taxonomy );
-		$string = taxonomy_short_description_shorten( $string, apply_filters( 'taxonomy_short_description_length', 40 ) );
+		$string = taxonomy_short_description_shorten( $string, apply_filters( 'mfields_taxonomy_short_description_length', 40 ) );
 	}
 	return $string;
 }
