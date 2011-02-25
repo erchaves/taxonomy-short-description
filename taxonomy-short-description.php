@@ -26,9 +26,9 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 
 /**
- * Hook into WordPress.
+ * Actions.
  *
- * Create hooks for all taxonomies that have a UI.
+ * Create actions for all taxonomies that have a UI.
  *
  * @return    void
  *
@@ -50,6 +50,8 @@ add_action( 'admin_init', 'taxonomy_short_description_actions' );
 
 
 /**
+ * Term Columns.
+ *
  * Filter the taxonomy tables columns.
  *
  * Remove the default "Description" column.
@@ -70,6 +72,8 @@ function taxonomy_short_description_columns( $c ) {
 
 
 /**
+ * Term Rows.
+ *
  * Display the shortened description in each row's custom column.
  *
  * @param     string    Should be empty.
@@ -92,6 +96,8 @@ function taxonomy_short_description_rows( $string, $column_name, $term ) {
 
 
 /**
+ * Shorten.
+ *
  * Shorten a string to a given length.
  *
  * @param     string    The string to shorten.
