@@ -148,7 +148,7 @@ function taxonomy_short_description_rows( $string, $column_name, $term ) {
  * @author    Michael Fields
  * @author    Thomas Scholz
  * @since     2010-05-31
- * @alter     2011-02-25
+ * @alter     2011-03-01
  */
 function taxonomy_short_description_shorten( $string, $max_length = 23, $append = '&#8230;', $encoding = 'utf8' ) {
 
