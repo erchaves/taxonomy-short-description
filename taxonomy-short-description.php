@@ -150,7 +150,7 @@ function taxonomy_short_description_rows( $string, $column_name, $term ) {
  * @since     2010-05-31
  * @alter     2011-02-25
  */
-function taxonomy_short_description_shorten( $string, $max_length = 23, $append = '&#8230;' ) {
+function taxonomy_short_description_shorten( $string, $max_length = 23, $append = '&#8230;', $encoding = 'utf8' ) {
 
 	/* Sanitize $string. */
 	$string = strip_tags( $string );
@@ -179,18 +179,22 @@ function taxonomy_short_description_shorten( $string, $max_length = 23, $append 
 	if ( $length > $max_length ) {
 
 		/* Shorten the string to max-length */
-		$string = mb_substr( $string, 0, $max_length, 'utf-8' );
+		$short = mb_substr( $string, 0, $max_length, $encoding );
 
-		/* Avoid breaks within words - find the last white space */
-		$pos = mb_strrpos( $string, ' ', 'utf-8' );
-
-		/* No space? One long word or chinese/korean/japanese text. Shorten the string to the last space. */
-		if ( false !== $pos ) {
-			$string = mb_substr( $string, 0, $pos, 'utf-8' );
+		/*
+		 * A word has been cut in half during shortening.
+		 * If the shortened string contains more than one word
+		 * the last word in the string will be removed.
+		 */
+		if ( 0 !== mb_strpos( $string, $short . ' ', 0, $encoding ) ) {
+			$pos = mb_strrpos( $short, ' ', $encoding );
+			if ( false !== $pos ) {
+				$short = mb_substr( $short, 0, $pos, $encoding );
+			}
 		}
 
 		/* Append shortened string with the value of $append preceeded by a non-breaking space. */
-		$string.= "\xC2\xA0" . $append;
+		$string = $short . ' ' . $append;
 	}
 
 	return $string;
