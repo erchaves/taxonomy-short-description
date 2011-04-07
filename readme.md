@@ -7,9 +7,11 @@ Changelog
 ---------
 
 __1.3.1__
+
 * Fix readme inconsistancies.
 
 __1.3__
+
 * Allow terms to be sorted by description. Props [Scribu](http://scribu.net/).
 
 __1.2__
