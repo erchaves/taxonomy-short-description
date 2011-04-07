@@ -5,7 +5,7 @@ Donate link: http://wordpress.mfields.org/donate/
 Tags: taxonomy, tag, category, description, short
 Requires at least: 3.1
 Tested up to: 3.1
-Stable tag: 1.1
+Stable tag: trunk
 Shortens the description shown in the administration panels for all categories, tags and custom taxonomies.
 
 ==Description==
@@ -25,9 +25,6 @@ If you have fallen in love with this plugin and would not be able to sleep witho
 = Need More Taxonomy Plugins? =
 I've released a handfull of plugins dealing with taxonomies. Please see my [plugin page](http://wordpress.org/extend/plugins/profile/mfields) for more info.
 
-= Known Issues =
-* You will not be able to sort by description in WordPress 3.1.
-
 ==Installation==
 
 1. Download
@@ -36,6 +33,12 @@ I've released a handfull of plugins dealing with taxonomies. Please see my [plug
 1. Activate the plugin.
 
 ==Changelog==
+
+= 1.3 =
+* Allow terms to be sorted by description. Props [Scribu](http://scribu.net/).
+
+= 1.2 =
+* Unknown
 
 = 1.1 =
 * Added support for multibyte strings in taxonomy_short_description_shorten().
