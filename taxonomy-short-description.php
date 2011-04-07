@@ -3,7 +3,7 @@
 Plugin Name:       Taxonomy Short Description
 Plugin URI:        http://wordpress.mfields.org/plugins/taxonomy-short-description/
 Description:       Shortens the description shown in the administration panels for all categories, tags and custom taxonomies.
-Version:           1.3
+Version:           1.3.1
 Author:            Michael Fields
 Author URI:        http://wordpress.mfields.org/
 License:           GPLv2
