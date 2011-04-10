@@ -38,7 +38,9 @@ I've released a handfull of plugins dealing with taxonomies. Please see my [plug
 * Allow terms to be sorted by description. Props [Scribu](http://scribu.net/).
 
 = 1.2 =
-* Unknown
+* Only create hooks for taxonomies that have a UI.
+* Responsible handling of the custom column.
+* Provide a fallback in case "mbstring" php extension is not installed.
 
 = 1.1 =
 * Added support for multibyte strings in taxonomy_short_description_shorten().
